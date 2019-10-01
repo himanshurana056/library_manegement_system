@@ -47,30 +47,13 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                        
-                            <li><a href="{{route('login')}}">Studnets </a></li>
-                            <li><a href="{{route('login')}}">Books </a></li>
-                            <li><a href="{{route('login')}}">Departments</a></li>
                     
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form')t
-                                        </a>.submit();">
-                                            Logout
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
+                            
+                                    <a href="/" class="nav-item nav-link"> Home </a> &nbsp
+                                    <a href="{{route('books.index')}}" class="nav-item nav-link"> Books </a> &nbsp
+                                    <a href="{{route('departments.index')}}" class="n av-item nav-link"> Departments </a> &nbsp
+                                    <a href="{{route('branches.index')}}" class="n av-item nav-link"> Branches </a>
+                                    
                         @endguest
                     </ul>
                 </div>
@@ -81,10 +64,8 @@
     </div>
 
     <!-- Scripts -->
-
-    <!-- ajax code for books_edit -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/books.js') }}"></script>
+    
 
  
    

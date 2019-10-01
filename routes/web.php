@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
 
 //students routes coded here:-
 
@@ -28,7 +29,7 @@ Route::resource('students','StudentsController');
 Route::get('/books/deleteBook/{id}','BooksController@deleteBook');
 Route::get('/books/editBook/{id}','BooksController@editBook');
 Route::post('/books/updateBook','BooksController@updateBook');
-Route::resource('books','BooksController')->middleware('auth');
+Route::resource('books','BooksController');
 
 // departments route coded here:-
 
@@ -37,5 +38,9 @@ Route::get('/departments/editDepartment/{id}','DepartmentsController@editDepartm
 Route::post('/departments/updateDepartment','DepartmentsController@updateDepartment');
 Route::Resource('departments','DepartmentsController');
 
+//branch route codded here:-
 
+Route::Resource('branches','BranchesController');
+Route::get('/branches/editBranch/{id}','BranchesController@editBranch');
+Route::post('/branches/updateBranch','BranchesController@updateBranch');
 

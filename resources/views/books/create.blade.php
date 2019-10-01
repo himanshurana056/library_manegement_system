@@ -13,18 +13,18 @@
               <div class="modal-body">
                         <div class="form-group">
                          <label for="book_name">Book Name </label>
-                          <input type ="text"  class="form-control "  name="book_name" >
+                          <input type ="text"  class="form-control "  name="book_name" required >
                         </div>
                         
                         <div class="form-group">
                           <label for="auther_name">Auther Name </label>
-                         <input type ="text" class="form-control " name="auther_name"  >
+                         <input type ="text" class="form-control " name="auther_name" required  >
                         </div>
 
                         
                         <div class="form-group">
                          <label for="description">Description</label>
-                         <textarea type ="text" class="form-control " name="description"  ></textarea>
+                         <textarea type ="text" class="form-control " name="description" required  ></textarea>
                         </div>
         </div>
             <div class="modal-footer">

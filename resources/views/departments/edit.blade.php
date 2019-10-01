@@ -42,7 +42,7 @@
 </div>
 
 
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
 $('.edit_department').click(function(e){
 // alert()
