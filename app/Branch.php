@@ -8,6 +8,7 @@ class Branch extends Model
 {
     protected $fillable =[
         'branch_name',
-        'student_name'
+        'student_name',
+        'gender'
     ];
 }

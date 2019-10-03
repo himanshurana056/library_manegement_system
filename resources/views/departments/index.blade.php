@@ -3,7 +3,7 @@
 @section('content') 
 <div class="container">
 
-<a href="" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Department </a>
+<a href="#" class="btn btn-primary" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Department </a>
 
 <table class ="table table-striped table-responsive">
     <thead>

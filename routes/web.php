@@ -43,4 +43,13 @@ Route::Resource('departments','DepartmentsController');
 Route::Resource('branches','BranchesController');
 Route::get('/branches/editBranch/{id}','BranchesController@editBranch');
 Route::post('/branches/updateBranch','BranchesController@updateBranch');
+Route::get('/branches/deleteBranch/{id}','BranchesController@deleteBranch');
 
+
+// semester route codded here:-
+
+Route::resource('semesters','SemestersController');
+Route::get('/semesters/editSemester/{id}','SemestersController@editSemester');
+Route::post('/semesters/updateSemester','BranchesController@updateSemester');
+Route::get('/semesters/deleteSemester/{id}','SemestersController@deleteSemester');
+// Route::get('/semesters/saveSemester','SemestersControllers@saveSemester');

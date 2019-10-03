@@ -41,7 +41,7 @@
                                 <button class="btn btn-danger delete_record" data-id="{{$book->id}}"> Delete </button>
                                 <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
                     <td>
-                             </form>
+                             <!-- </form> -->
 </tr>
 @endforeach
     </tbody>

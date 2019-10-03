@@ -42,6 +42,7 @@ class BranchesController extends Controller
               $branch = new Branch;
         $branch->branch_name = $request->get('branch_name');
         $branch->student_name = $request->get('student_name');
+        $branch->gender = $request->get('gender');
               $branch->save();
               // dd($branch);
         return redirect('branches');
@@ -87,7 +88,7 @@ class BranchesController extends Controller
           
          $branch->branch_name = $request->get('branch_name');
          $branch->student_name = $request->get('student_name');
-         
+         $branch->gender = $request->get('gender');
           $branch->save();
           return redirect('/branches');
         
@@ -110,6 +111,20 @@ class BranchesController extends Controller
         $branch = Branch::find($id);
         return response()
             ->json(['branch' => $branch]);
+         
+    }
+    public function deleteBranch($id)
+    {
+
+        $status = false;
+        if(Branch::find($id)->destroy($id)){
+            $status = true;
+        } 
+
+        return response()
+        ->json(['status' => $status]);
+
+        
          
     }
 }

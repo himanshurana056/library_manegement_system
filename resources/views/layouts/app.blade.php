@@ -52,7 +52,8 @@
                                     <a href="/" class="nav-item nav-link"> Home </a> &nbsp
                                     <a href="{{route('books.index')}}" class="nav-item nav-link"> Books </a> &nbsp
                                     <a href="{{route('departments.index')}}" class="n av-item nav-link"> Departments </a> &nbsp
-                                    <a href="{{route('branches.index')}}" class="n av-item nav-link"> Branches </a>
+                                    <a href="{{route('branches.index')}}" class="n av-item nav-link"> Branches </a>&nbsp
+                                    <a href="{{route('semesters.index')}}" class="n av-item nav-link"> Semesters </a>
                                     
                         @endguest
                     </ul>
