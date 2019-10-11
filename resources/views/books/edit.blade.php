@@ -9,7 +9,7 @@
         </button>
       </div>
       <form action="{{URL::to('books/updateBook')}}" id="edit_books" method="POST">
-                        <input type="hidden" id="book_id" name="id" value="" >
+                        <input type="hidden" id="book_id"  name="id" value="" >
                        
                        
                        
@@ -31,11 +31,22 @@
                          <label for="description"> Description </label>
                          <input type ="text" class="form-control" name="description" value="">
                         </div>
-                 </div>
+
+                        <div class="form-group">
+                        <label for="department_name"> Department Name</label>
+                          <select class="form-control" name="department_id">
+                          <option>Choose department</option> 
+                              @foreach($departments as $department)
+                                <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                              @endforeach
+                          </select> 
+                       
                         <div class="modal-footer">
                         <button type="submit"  class="btn btn-primary-outline"> Update</button>
                        <button type="button" class="btn btn-default"       data-dismiss="modal">Close</button>
                          </div>
+
+                        
         </form>
     </div>
   </div>
@@ -58,6 +69,8 @@ $('.edit_book').click(function(e){
             $form.find("input[name='book_name']").val(response.book.book_name);
             $form.find("input[name='auther_name']").val(response.book.auther_name);
             $form.find("input[name='description']").val(response.book.description);
+            
+            $form.find("select[name='department_id']").val(response.book.department_id);
             $('#book_id').val(response.book.id);
             
             $('#edit-modal').modal('toggle');

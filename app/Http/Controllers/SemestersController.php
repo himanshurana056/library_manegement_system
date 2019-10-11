@@ -111,8 +111,19 @@ class SemestersController extends Controller
 
     }
 
-   
 
-    
+    public function deleteSemester($id)
+    {
+        $status = false;
+        if(Semester::find($id)->destroy($id)){
+            $status = true;
+        } 
+
+        return response()
+        ->json(['status' => $status]);
+
+    } 
+   
+			
 
 }

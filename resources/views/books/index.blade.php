@@ -15,18 +15,30 @@
         <th>BOOK NAME</th>
         <th>AUTHER NAME</th>
         <th>DESCRIPTION</th>
+        <th>COVER IMAGE</th>
+        <th>DEPARTMENT NAME</th>
+       
+
+     
         <th colsapn = 2><center>Action </center> </th> 
     </tr>
     </thead>
 
     <tbody>
-@foreach ($books as $book)
+@foreach  ($books as $book)
 <tr>
     <td>{{$book->id}}</td>
     <td>{{$book->book_name}}</td>
     <td>{{$book->auther_name}}</td>
     <td>{{$book->description}}</td>
+    <td>{{$book->cover_image}}</td>
+    <td>{{$book->department->department_name}}</td>
+    
+  
 
+
+
+                          
 
     <!-- code for edit button for update the data in the database-->
                     <td>

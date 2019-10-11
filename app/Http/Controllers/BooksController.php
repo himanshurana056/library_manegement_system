@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Department;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -14,10 +15,14 @@ class BooksController extends Controller
      */
     public function index()
     {
-       
+      
          $books = Book::all();
-    //    dd($books);  
-        return view('books.index',compact('books'));
+        
+         $departments = Department::all();
+
+         
+      // dd($books);  
+        return view('books.index',compact('books', 'departments'));
         // dd('return');     
 
     }
@@ -43,17 +48,30 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Book ();
-        // dd($book);
-
+   
+       $book = new Book ();
+     
+       $department = Department::find($request->get('department_id')); 
+    //  dd($book);
+   
+   
+        //  dd($book);
+        
         $book->book_name = $request->get('book_name');
         $book->auther_name = $request->get('auther_name');
-        $book->description = $request->get('description');
+        $book->description = $request->get('description');   
+        $book->cover_image = $request->file('cover_image')->store('books','public');
+        
+        dd($book);
        
-        $book->save();
-      
-        return redirect('/books');
+        // dd($book);
+        $department->book()->save($book);
+        // dd($department);
 
+ 
+        // dd($department);
+            
+        return redirect ('/books');
         }
 
     /**
@@ -68,20 +86,6 @@ class BooksController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id )
-    {
-          $book = Book::find($id);
-        //   dd($book);
-          return redirect('/books.edit');
-         
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -93,15 +97,25 @@ class BooksController extends Controller
         //  dd($request->all());
         
          $book = Book::find($request->get('id'));
+         $department = Department::find($request->get('department_id')); 
+       
+    
+         
+         
          
         //  print_r($book);
          
          $book->book_name = $request->get('book_name');
          $book->auther_name = $request->get('auther_name');
          $book->description = $request->get('description');
-        //  dd($book);
-         $book->save();
-         return redirect('/books');
+
+       
+         
+        $department->book()->save($book);
+        return redirect('/books');
+
+
+         
     }
 
     /**
@@ -112,10 +126,7 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        // dd('here');
-        // $book = Book::find($id);
-        // $book->delete();
-        // return redirect('/books');
+        //
     }
      public function editBook($id)
     {
@@ -123,6 +134,7 @@ class BooksController extends Controller
         $book = Book::find($id);
         return response()
             ->json(['book' => $book]);
+      
          
     }
 

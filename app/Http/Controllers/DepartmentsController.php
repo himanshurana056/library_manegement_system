@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Department;
 
 
+
 class DepartmentsController extends Controller
 {
     /**
@@ -100,9 +101,7 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-    //    $department = Department::find($id);
-    //     $department->delete();
-    //     return redirect('/departments');
+        //
     }
 
 // new function for ajax

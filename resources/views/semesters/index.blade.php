@@ -33,7 +33,9 @@
 <!-- code for delete button for delete the semester -->
             <td>
 
-            <a href="#"  class="btn btn-danger">Delete</a>
+            <a href="#" data-id="{{$semester->id}}" class="btn btn-danger delete_record">Delete</a>
+            </td>
+            
             </td>
       </tr>
       @endforeach
@@ -42,6 +44,39 @@
 @include('semesters.create')
 @include('semesters.edit')
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+$('.delete_record').click(function(e){
+  var choice = confirm('Do you really want to delete this record?');
+    if(choice === true) {
+      e.preventDefault();
+   
+    var cutomrurl ="{{URL::to('semesters/deleteSemester')}}";
+    $this = $(this)
+    var id = $this.data('id');
+    
+   $.ajax({
+        url:cutomrurl+'/'+id,
+        type:'GET',
+        dataType: "JSON",
+        success:function(response){
+          // console.log(response);
+          if(response.status == true) {
+            $this.parent().parent('tr').remove();
+          }
+
+         
+        }
+    }) 
+
+        return true;
+    }
+    return false;
+    
+})
+}) 
+</script>
 
 
 @endsection

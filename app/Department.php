@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Department;
 
+
 class Department extends Model
 {
     protected $fillable =[
@@ -12,4 +13,10 @@ class Department extends Model
         'hod_name',
         'incharge_name'
     ];
+
+    public function book()
+    {
+        return $this->hasMany('App\Book');
+        
+    }
 }
