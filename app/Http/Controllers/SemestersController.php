@@ -36,15 +36,13 @@ class SemestersController extends Controller
      */
     public function store(Request $request)
     {
-                     $semester = new Semester;
-                    //  dd($semester);
+        $semester = new Semester;
         $semester->semester_number = $request->get('semester_number');
         $semester->total_subjects = $request->get('total_subjects');
         $semester->semester_room_number = $request->get('semester_room_number');
-            // dd($semester);
-            $semester->save();
-                    // return redirect('semesters'); 
-                    return redirect('semesters');
+
+        $semester->save();
+        return redirect('semesters');
     }
 
     /**
@@ -76,19 +74,19 @@ class SemestersController extends Controller
      * @param  \App\Semester  $semester
      * @return \Illuminate\Http\Response
      */
-    public function updateSemester(Request $request, Semester $semester)
+    public function updateSemester(Request $request, Semester $semester )
     {
-        // dd($request->all());
-        $semester = Semester::find($request->get('id'));
-       
-         
-        //  $semester->semester_number = $request->get('semester_number');
-        //  $semester->total_subjects = $request->get('total_subjects');
-        //  $semester->semester_room_number = $request->get('semester_room_number');
+        //   dd($request->all());
+          $semester = Semester::find($request->get('id'));
+// dd($semester);
+          $semester->semester_number = $request->get('semester_number');
+          $semester->total_subjects = $request->get('total_subjects');
+          $semester->semester_room_number = $request->get('semester_room_number');
+          $semester->save();
+          return redirect('/semesters');
         
-        //  $semester->save();
-        //  return redirect('/semesters');
     }
+
 
     /**
      * Remove the specified resource from storage.

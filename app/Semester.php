@@ -12,4 +12,8 @@ class Semester extends Model
         'total_subjects',
         'semester_room_number'
     ];
+    public function student()
+    {
+        return $this->hasMany('App\Student');
+    }
 }

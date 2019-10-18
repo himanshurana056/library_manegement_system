@@ -32,6 +32,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -47,14 +48,33 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                    
-                            
-                                    <a href="/" class="nav-item nav-link"> Home </a> &nbsp
-                                    <a href="{{route('books.index')}}" class="nav-item nav-link"> Books </a> &nbsp
-                                    <a href="{{route('departments.index')}}" class="n av-item nav-link"> Departments </a> &nbsp
-                                    <a href="{{route('branches.index')}}" class="n av-item nav-link"> Branches </a>&nbsp
-                                    <a href="{{route('semesters.index')}}" class="n av-item nav-link"> Semesters </a>
-                                    
+<!-- menu display of liberary manegment project -->
+
+                        <a href="{{route('students.index')}}" class="navbar-brand"> &nbsp; Students</a>
+                        <a href="{{route('departments.index')}}"class="navbar-brand"> &nbsp; Departments</a>
+                        <a href="{{route('branches.index')}}" class="navbar-brand"> &nbsp; Branches</a>
+                        <a href="{{route('semesters.index')}}" class="navbar-brand"> &nbsp; Semesters</a>
+                        <a href="{{route('books.index')}}" class="navbar-brand"> &nbsp; Books</a>
+<!-- end of menu listing -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -66,11 +86,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    
 
- 
-   
-
-   
 </body>
 </html>

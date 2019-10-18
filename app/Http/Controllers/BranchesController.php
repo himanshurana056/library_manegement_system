@@ -39,12 +39,13 @@ class BranchesController extends Controller
      */
     public function store(Request $request)
     {
-              $branch = new Branch;
+        $branch = new Branch;
+
         $branch->branch_name = $request->get('branch_name');
         $branch->student_name = $request->get('student_name');
         $branch->gender = $request->get('gender');
-              $branch->save();
-              // dd($branch);
+        $branch->save();
+          
         return redirect('branches');
 
     }
@@ -84,13 +85,12 @@ class BranchesController extends Controller
     {
          // dd($request->all());
          $branch = Branch::find($request->get('id'));
-         
-          
+        
          $branch->branch_name = $request->get('branch_name');
          $branch->student_name = $request->get('student_name');
          $branch->gender = $request->get('gender');
-          $branch->save();
-          return redirect('/branches');
+         $branch->save();
+         return redirect('/branches');
         
     }
 

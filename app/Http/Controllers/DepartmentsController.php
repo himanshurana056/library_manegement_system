@@ -67,9 +67,7 @@ class DepartmentsController extends Controller
      */
     public function edit($id)
     {
-        // $department = Department::find($id);
-        //         dd('here');
-        //     return redirect('departments.edit');
+       //
     }
 
     /**
@@ -83,7 +81,7 @@ class DepartmentsController extends Controller
     {
         // dd($request->all());
         $department = Department::find($request->get('id'));
-        // $department = Department::find($id);
+     
          
          $department->department_name = $request->get('department_name');
          $department->hod_name = $request->get('hod_name');

@@ -17,13 +17,10 @@ class BooksController extends Controller
     {
       
          $books = Book::all();
-        
          $departments = Department::all();
 
-         
-      // dd($books);  
         return view('books.index',compact('books', 'departments'));
-        // dd('return');     
+           
 
     }
 
@@ -49,28 +46,16 @@ class BooksController extends Controller
     public function store(Request $request)
     {
    
-       $book = new Book ();
+        $book = new Book ();
      
-       $department = Department::find($request->get('department_id')); 
-    //  dd($book);
-   
-   
-        //  dd($book);
+        $department = Department::find($request->get('department_id')); 
         
         $book->book_name = $request->get('book_name');
         $book->auther_name = $request->get('auther_name');
         $book->description = $request->get('description');   
         $book->cover_image = $request->file('cover_image')->store('books','public');
-        
-        dd($book);
-       
-        // dd($book);
+    
         $department->book()->save($book);
-        // dd($department);
-
- 
-        // dd($department);
-            
         return redirect ('/books');
         }
 
@@ -97,22 +82,17 @@ class BooksController extends Controller
         //  dd($request->all());
         
          $book = Book::find($request->get('id'));
-         $department = Department::find($request->get('department_id')); 
-       
     
-         
-         
-         
-        //  print_r($book);
+         $department = Department::find($request->get('department_id'));
          
          $book->book_name = $request->get('book_name');
          $book->auther_name = $request->get('auther_name');
          $book->description = $request->get('description');
 
-       
-         
-        $department->book()->save($book);
-        return redirect('/books');
+         $book->cover_image = $request->file('cover_image')->store('books','public');
+                                          
+         $department->book()->save($book);
+         return redirect('/books');
 
 
          

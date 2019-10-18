@@ -17,12 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 //students routes coded here:-
 
 Route::resource('students','StudentsController');
+Route::get('/students/editStudent/{id}','StudentsController@editStudent');
+Route::post('/students/updateStudent','StudentsController@updateStudent');
+Route::get('/students/deleteStudent/{id}','StudentsController@deleteStudent');
+
 
 // books routes coded here:-
 
@@ -50,6 +54,5 @@ Route::get('/branches/deleteBranch/{id}','BranchesController@deleteBranch');
 
 Route::resource('semesters','SemestersController');
 Route::get('/semesters/editSemester/{id}','SemestersController@editSemester');
-Route::post('/semesters/updateSemester','BranchesController@updateSemester');
+Route::post('/semesters/updateSemester','SemestersController@updateSemester');
 Route::get('/semesters/deleteSemester/{id}','SemestersController@deleteSemester');
-// Route::get('/semesters/saveSemester','SemestersControllers@saveSemester');

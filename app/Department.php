@@ -9,6 +9,7 @@ use App\Department;
 class Department extends Model
 {
     protected $fillable =[
+        
         'department_name',
         'hod_name',
         'incharge_name'
@@ -17,6 +18,12 @@ class Department extends Model
     public function book()
     {
         return $this->hasMany('App\Book');
+        
+    }
+
+    public function student()
+    {
+        return $this->hasMany('App\Student');
         
     }
 }

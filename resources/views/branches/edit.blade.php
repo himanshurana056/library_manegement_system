@@ -8,43 +8,42 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="{{URL::to('branches/updateBranch')}}" id="edit_branches" method="POST">
+        <form action="{{URL::to('branches/updateBranch')}}" id="edit_branches" method="POST">
                         <input type="hidden" id="branch_id" name="id" value="" >
-                       
-                       
-                       
-    
-      {{csrf_field()}}
-              <div class="modal-body">
-                        
-                        <div class="form-group">
-                          <label for="branch_name"> Branch Name </label>
-                         <input type ="text" class="form-control" name="branch_name" value="">
-                        </div>
+        
+               {{csrf_field()}}
+        <div class="modal-body">
+              
+              <div class="form-group">
+                  <label for="branch_name"> Branch Name </label>
+                  <input type ="text" class="form-control" name="branch_name" value="">
+              </div>
 
-                        
-                        <div class="form-group">
-                         <label for="student_name"> Studnet Name </label>
-                         <input type ="text" class="form-control" name="student_name" value="">
-                        </div>
+              
+              <div class="form-group">
+                  <label for="student_name"> Studnet Name </label>
+                  <input type ="text" class="form-control" name="student_name" value="">
+              </div>
 
-                        <div class="form-group">
-                         <label for="gender"> Correct The Gender</label>
-                        <select name="gender"> gender
-                              <option> Gender </option>
-                              <option value="male" @if ($branch->gender == 1) @endif >  male</option>
-                              <option value="female" @if ($branch->gender == 0) @endif > female</option>
-                        </select>
-             </div>
-                 </div>
-                        <div class="modal-footer">
-                        <button type="submit"  class="btn btn-primary-outline"> Update</button>
-                       <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
-                         </div>
-        </form>
-    </div>
-  </div>
+              <div class="form-group">
+                <label for="gender"> Correct The Gender</label>
+              <select name="gender"> gender
+                    <option> Gender </option>
+                    <option value="male" @if ($branch->gender == 1) @endif >  male</option>
+                    <option value="female" @if ($branch->gender == 0) @endif > female</option>
+              </select>
+              </div>
+        </div>
+              <div class="modal-footer">
+                <button type="submit"  class="btn btn-primary-outline"> Update</button>
+                <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
+                </div>
+          </form>
+       </div>
+   </div>
 </div>
+
+<!-- ajax call on hit of edit button -->
 
 <script type="text/javascript">
 

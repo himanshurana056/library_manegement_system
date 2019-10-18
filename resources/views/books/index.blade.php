@@ -10,66 +10,49 @@
  <table class ="table table-striped table-responsive">
 
     <thead>
-     <tr>
-        <th> Id </th>
-        <th>BOOK NAME</th>
-        <th>AUTHER NAME</th>
-        <th>DESCRIPTION</th>
-        <th>COVER IMAGE</th>
-        <th>DEPARTMENT NAME</th>
-       
-
-     
-        <th colsapn = 2><center>Action </center> </th> 
-    </tr>
-    </thead>
+         <tr>
+                <th> Id </th>
+                <th>COVER IMAGE</th>
+                <th>BOOK NAME</th>
+                <th>AUTHER NAME</th>
+                <th>DESCRIPTION</th>
+                <th>DEPARTMENT NAME</th>
+                <th colsapn = 2><center>Action </center> </th> 
+           </tr>
+      </thead>
 
     <tbody>
 @foreach  ($books as $book)
-<tr>
-    <td>{{$book->id}}</td>
-    <td>{{$book->book_name}}</td>
-    <td>{{$book->auther_name}}</td>
-    <td>{{$book->description}}</td>
-    <td>{{$book->cover_image}}</td>
-    <td>{{$book->department->department_name}}</td>
-    
-  
+         <tr>
+             
+              <td>{{$book->id}}</td>
+              <td><img src='{{asset("storage/$book->cover_image")}}'></td>
+              <td>{{$book->book_name}}</td>
+              <td>{{$book->auther_name}}</td>
+              <td>{{$book->description}}</td>
+              <td>{{$book->department->department_name}}</td>
 
+<!-- code to edit/delete button  -->
+              <td>
+                  <a href="#" data-id="{{$book->id}}" class="btn btn-success edit_book">Edit</a>
+              </td>
 
+              <td>
+                  <button class="btn btn-danger delete_record" data-id="{{$book->id}}"> Delete </button>
+              <td>
+                             
+          </tr>
 
-                          
-
-    <!-- code for edit button for update the data in the database-->
-                    <td>
-                        <a href="#" data-id="{{$book->id}}" class="btn btn-success edit_book">Edit</a>
-                        
-                    </td>
-
-    <!-- code for delete button for delete the data in the database -->
-                    <td>
-                            <!-- <form action ="{{route('books.destroy',$book->id)}}" method="post">
-                                <input type ="hidden" name="_method" value="DELETE"> -->
-                                <button class="btn btn-danger delete_record" data-id="{{$book->id}}"> Delete </button>
-                                <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-                    <td>
-                             <!-- </form> -->
-</tr>
 @endforeach
     </tbody>
   </table>
+</div>
+<!--Start Add/edit Modal form -->
 
-<!--Start Add  Modal -->
+@include('books.create')  
+@include('books.edit')
 
-@include('books.create')
-
-<!-- End Add modal -->
-
-<!--Start Edit  Modal -->
-
-  @include('books.edit')
-
-<!-- end of edit modal -->
+<!-- code for ajax on delete button -->
 
 <script type="text/javascript">
 

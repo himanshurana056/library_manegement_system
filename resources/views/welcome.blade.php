@@ -64,18 +64,14 @@
                 margin-bottom: 30px;
             }
             
-        </style>
+            </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                                    <a href="{{route('books.index')}}" class="nav-item nav-link"> Books </a> &nbsp
-                                    <a href="{{route('departments.index')}}" class="n av-item nav-link"> Departments </a> &nbsp
-                                    <a href="{{route('branches.index')}}" class="n av-item nav-link"> Branches </a>&nbsp
-                                    <a href="{{route('semesters.index')}}" class="n av-item nav-link"> Semesters </a>
-
+                        <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
@@ -85,10 +81,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Liberary Manegment System
+                    <u>Laravel <br>Liberary Manegment Project</u>
                 </div>
 
-              
+                
             </div>
         </div>
     </body>
