@@ -55,6 +55,7 @@
                         <a href="{{route('branches.index')}}" class="navbar-brand"> &nbsp; Branches</a>
                         <a href="{{route('semesters.index')}}" class="navbar-brand"> &nbsp; Semesters</a>
                         <a href="{{route('books.index')}}" class="navbar-brand"> &nbsp; Books</a>
+                        <a href="{{route('sessions.index')}}" class="navbar-brand"> &nbsp; session</a>
 <!-- end of menu listing -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>

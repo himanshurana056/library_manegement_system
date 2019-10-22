@@ -13,8 +13,7 @@
        <tr>
             <th> Id </th>
             <th> Branch Name</th>
-            <th> Student Name </th>
-            <th> Gender </th>
+          
             <th colsapn = 2> Action </th>
        </tr>
      </thead>
@@ -24,8 +23,7 @@
         <tr>
               <td>{{$branch->id}}</td>
               <td>{{$branch->branch_name}}</td>
-              <td>{{$branch->student_name}}</</td>
-              <td>{{$branch->gender}}</</td>
+         
 
      <!-- code to edit/delete button  -->
 

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Branch;
+use App\Session;
 use Illuminate\Http\Request;
-use\App\Student;
 
-class BranchesController extends Controller
+class SessionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class BranchesController extends Controller
      */
     public function index()
     {
-        // dd('here');
-        $branches = Branch::all();
-        return view('branches.index',compact('branches'));
+        $sessions = Session::all();
+        return view('sessions.index',compact('sessions'));
     }
 
     /**
@@ -27,9 +25,7 @@ class BranchesController extends Controller
      */
     public function create()
     {
-        // dd('here');
-        return view('branches.create');
-            
+        return view ('sessions.create');
     }
 
     /**
@@ -40,24 +36,22 @@ class BranchesController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
-        $branch = new Branch;
+        $session = new Session;
 
-        $branch->branch_name = $request->get('branch_name');
-       
-        $branch->save();
-          
-        return redirect('branches');
-
+        $session->admission_year = $request->get('admission_year');
+        $session->passing_year = $request->get('passing_year');
+        $session->save();
+    
     }
+    
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Branch  $branch
+     * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function show(Branch $branch)
+    public function show(Session $session)
     {
         //
     }
@@ -65,59 +59,59 @@ class BranchesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Branch  $branch
+     * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Session $session)
     {
-        // $branch = Branch::find($id);
-        // //   dd($book);
-        //   return view('branches.edit',compact('branches'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Branch  $branch
+     * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function updateBranch(Request $request)
+    public function updateSession(Request $request)
     {
-         // dd($request->all());
-         $branch = Branch::find($request->get('id'));
-        
-         $branch->branch_name = $request->get('branch_name');
-      
-         $branch->save();
-         return redirect('/branches');
-        
+
+       
+        $session = Session::find($request->get('id'));
+
+        $session->admission_year = $request->get('admission_year');
+        $session->passing_year = $request->get('passing_year');
+        $session->save();
+        return redirect('/sessions');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Branch  $branch
+     * @param  \App\Session  $session
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Branch $branch)
+    public function destroy(Session $session)
     {
         //
     }
 
-    public function editBranch($id)
+    
+    public function editSession($id)
     {
+        $session = Session::find($id);
 
-        $branch = Branch::find($id);
         return response()
-            ->json(['branch' => $branch]);
-         
+        ->json(['session' => $session]);
+
     }
-    public function deleteBranch($id)
+
+    public function deleteSession($id)
     {
 
         $status = false;
-        if(Branch::find($id)->destroy($id)){
+        if(Session::find($id)->destroy($id)){
             $status = true;
         } 
 
@@ -127,4 +121,5 @@ class BranchesController extends Controller
         
          
     }
+
 }

@@ -13,6 +13,7 @@
                <input type="hidden" id="student_profile">
                <input type="hidden" id="department_id" method="post">
                <input type="hidden" id="semester_id" method="post">
+               
                 {{csrf_field()}}
               
         <div class="modal-body">
@@ -52,16 +53,26 @@
                     <label for="first_name">First Name </label>
                     <input type ="text"  class="form-control" name="first_name" required >
                   </div>
+
                 
                   <div class="form-group">
                     <label for="last_name">Last Name </label>
                     <input type ="text" class="form-control " name="last_name" required  >
                   </div>
+                  
         
                   <div class="form-group">
                     <label for="address">Address</label>
                     <textarea type ="text" class="form-control " name="address" required  ></textarea>
                   </div>
+
+
+                  <div class="form-group">
+                    <label for="branch_name">Branch Name </label>
+                    <input type ="text"  class="form-control" name="branch_name" required >
+                  </div>
+
+
 
                   <div class="form-group">
                       <label for="city">City </label>

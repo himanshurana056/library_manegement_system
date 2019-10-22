@@ -8,13 +8,19 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <form  action="{{Route('branches.store')}}" method="post" >
+    <form  action="{{Route('sessions.store')}}" method="post" >
       {{csrf_field()}}
        <div class="modal-body">
             <div class="form-group">
-              <label for="branch_name">Branch Name </label>
-              <input type ="text"  class="form-control "  name="branch_name" required >
+              <label for="admission_year">Admission Year</label>
+              <input type ="date"  class="form-control" name="admission_year" required >
             </div>
+
+            <div class="form-group">
+              <label for="passing_year">Passing Year</label>
+              <input type ="date"  class="form-control" name="passing_year" required >
+            </div>
+
       </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary-outline"> Add</button>

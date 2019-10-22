@@ -18,7 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// sessions route code is here:
 
+Route::resource('sessions','SessionsController');
+Route::get('/sessions/editSession/{id}','SessionsController@editSession');
+Route::post('/sessions/updateSession','SessionsController@updateSession');
+Route::get('/sessions/deleteSession/{id}','SessionsController@deleteSession');
 
 //students routes coded here:-
 
@@ -26,7 +31,6 @@ Route::resource('students','StudentsController');
 Route::get('/students/editStudent/{id}','StudentsController@editStudent');
 Route::post('/students/updateStudent','StudentsController@updateStudent');
 Route::get('/students/deleteStudent/{id}','StudentsController@deleteStudent');
-
 
 // books routes coded here:-
 

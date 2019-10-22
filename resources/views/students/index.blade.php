@@ -21,6 +21,7 @@
           <th>CITY</th>
           <th>PINCODE</th>
           <th>DEPARTMENT</th>
+       
         
         <th colsapn = 2><center>Action </center> </th> 
     </tr>
@@ -41,7 +42,13 @@
         <td>{{$student->student_profile->city}}</td>
         <td>{{$student->student_profile->pincode}}</td>   
         <td>{{$student->department->department_name}}</td> 
-
+        
+        
+       
+       
+     
+      
+        
       <!-- code for edit button for update the data in the database-->
         <td>
           <a href="#" data-id="{{$student->id}}" class="btn btn-success edit_student">Edit</a>

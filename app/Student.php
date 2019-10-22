@@ -4,7 +4,7 @@ namespace App;
 use App\StudentProfile;
 use App\Department;
 use App\Semester;
-
+use App\Branch;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,7 +31,15 @@ class Student extends Model
         return $this->belongsTo('App\Semester');
     }
 
-    
+
+
+    public function branches()
+    { 
+        return $this->belongsToMany('App\Branch', 'student_branch','student_id', 'branch_id')
+        ->withTimestamps();
+        
+    }
+
 
     public function getFullNameAttribute()
     {

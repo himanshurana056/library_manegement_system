@@ -6,6 +6,9 @@ use App\Student;
 use App\StudentProfile;
 use App\Department;
 use App\Semester;
+use App\Branch;
+
+
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller
@@ -16,11 +19,16 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
+      
+        
         $students = Student::all();
         $departments = Department::all();
         $semesters = Semester::all();
        
+        
+      
         return view('students.index', compact('students', 'departments', 'semesters'));
     }
 
@@ -42,13 +50,17 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-       
+    //    dd($request);
+
         $student = new Student;
+        // dd($student);
 
         $semester = Semester::find($request->get('semester_id'));
 
         $department = Department::find($request->get('department_id')); 
-       
+
+        
+
         $student->user_name = $request->get('user_name');
         $student->email = $request->get('email');
         $student->password = $request->get('password');
@@ -57,9 +69,15 @@ class StudentsController extends Controller
         $department->student()->save($student);
         $semester->student()->save($student);
         
+   
+       
+        
+       
+       
 // studentProfile store the value in the database
 
         $student_profile = new StudentProfile;
+
         
         $student_profile->cover_image = $request->file('cover_image')->store('students','public');
         $student_profile->roll_number = $request->get('roll_number');
@@ -75,6 +93,13 @@ class StudentsController extends Controller
         
         $student_profile->student()->associate($student);
         $student_profile->save();
+
+        $branch = new Branch;
+       
+        $branch->branch_name = $request->get('branch_name');
+        $student->branches()->sync($student);
+        // dd($student);
+        $branch->save();
         
         return redirect('students');
 

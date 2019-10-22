@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> Edit Modal</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> Edit student</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,93 +12,90 @@
               <input type="hidden" id="student_id"  name="id"  value="" >
              
       {{csrf_field()}}
-              <div class="modal-body">
-                    <div class="form-group">
-                    <label for="user_name"> User Name </label>
-                      <input type ="text"  class="form-control" name="user_name" value="">
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                    <input type ="text" class="form-control" name="email" value="">
-                    </div>
-
-                    
-                    <div class="form-group">
-                    <label for="password"> Password </label>
-                    <input type ="password" class="form-control" name="password" value="">
-                    </div>
-
-<!-- student profile edit -->
-                  <div class="form-group">
-                    <label for="roll_number">Roll Number</label>
-                      <input type ="text"  class="form-control" name="roll_number" values="" required >
-                    </div>
-
-                    <div class="form-group">
-                    <label for="birth_year">Birth Year</label>
-                      <input type ="date"  class="form-control" name="birth_year" values="" required >
-                    </div>
-                    
-                    <div class="form-group">
-                    <label for="first_name">First Name </label>
-                      <input type ="text"  class="form-control" name="first_name" values="" required >
-                    </div>
-                    
-                    <div class="form-group">
-                      <label for="last_name">Last Name </label>
-                    <input type ="text" class="form-control " name="last_name"  values=""required  >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="cover_image">Cover Image</label>
-                        <input type="file" class="form-control" value="" name="cover_image" required>
-                    </div>
-
-                    
-                    <div class="form-group">
-                    <label for="address">Address</label>
-                    <textarea type ="text" class="form-control" name="address" values="" required  ></textarea>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="city">City Name </label>
-                    <input type ="text" class="form-control " name="city"  values=""required  >
-                    </div>
-
-                    <div class="form-group">
-                      <label for="pincode">Pincode</label>
-                    <input type ="text" class="form-control " name="pincode"  values=""required  >
-                    </div>
-
-                  <div class="form-group">
-                    <label for="department_name"> Department Name</label>
-                      <select class="form-control" name="department_id">
-                        <option>Choose department</option> 
-                    @foreach($departments as $department)
-                          <option value="{{ $department->id }}">{{ $department->department_name }}</option>
-                    @endforeach
-                        </select> 
-                    </div>
-
-                    <div class="form-group ">
-                  <label for="semester_number"> semester</label>
-                      <select class="form-control" name="semester_id">
-                        <option>Choose Semester</option> 
-                    @foreach($semesters as $semester)
-                        <option value="{{$semester->id}}">{{$semester->semester_number}}</option>
-                    @endforeach
-                        </select> 
+          <div class="modal-body">
+                <div class="form-group">
+                  <label for="user_name"> User Name </label>
+                  <input type ="text"  class="form-control" name="user_name" value="">
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type ="text" class="form-control" name="email" value="">
                 </div>
 
+                
+                <div class="form-group">
+                  <label for="password"> Password </label>
+                  <input type ="password" class="form-control" name="password" value="">
+                </div>
+
+<!-- student profile edit -->
+              <div class="form-group">
+                  <label for="roll_number">Roll Number</label>
+                  <input type ="text"  class="form-control" name="roll_number" values="" required >
+                </div>
+
+                <div class="form-group">
+                  <label for="birth_year">Birth Year</label>
+                  <input type ="date"  class="form-control" name="birth_year" values="" required >
+                </div>
+                
+                <div class="form-group">
+                  <label for="first_name">First Name </label>
+                  <input type ="text"  class="form-control" name="first_name" values="" required >
+                </div>
+                
+                <div class="form-group">
+                  <label for="last_name">Last Name </label>
+                  <input type ="text" class="form-control " name="last_name"  values=""required  >
+                </div>
+
+                <div class="form-group">
+                    <label for="cover_image">Cover Image</label>
+                    <input type="file" class="form-control" value="" name="cover_image" required>
+                </div>
 
                 
-                <div class="modal-footer">
-                <button type="submit"  class="btn btn-primary-outline"> Update</button>
-                <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea type ="text" class="form-control" name="address" values="" required  ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City Name </label>
+                    <input type ="text" class="form-control " name="city"  values=""required  >
+                </div>
+
+                <div class="form-group">
+                    <label for="pincode">Pincode</label>
+                    <input type ="text" class="form-control " name="pincode"  values=""required  >
+                </div>
+
+                <div class="form-group">
+                      <label for="department_name"> Department Name</label>
+                    <select class="form-control" name="department_id">
+                      <option>Choose department</option> 
+                  @foreach($departments as $department)
+                      <option value="{{ $department->id }}">{{ $department->department_name }}</option>
+                  @endforeach
+                    </select> 
                   </div>
 
-                        
+                  <div class="form-group ">
+                        <label for="semester_number"> semester</label>
+                    <select class="form-control" name="semester_id">
+                      <option>Choose Semester</option> 
+                  @foreach($semesters as $semester)
+                      <option value="{{$semester->id}}">{{$semester->semester_number}}</option>
+                  @endforeach
+                    </select> 
+                </div>
+
+            <div class="modal-footer">
+                <button type="submit"  class="btn btn-primary-outline"> Update</button>
+                <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
+              </div>    
+
         </form>
     </div>
   </div>
