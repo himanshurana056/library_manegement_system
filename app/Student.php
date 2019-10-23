@@ -5,6 +5,7 @@ use App\StudentProfile;
 use App\Department;
 use App\Semester;
 use App\Branch;
+use App\Session;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,6 +37,14 @@ class Student extends Model
     public function branches()
     { 
         return $this->belongsToMany('App\Branch', 'student_branch','student_id', 'branch_id')
+        ->withTimestamps();
+        
+    }
+
+
+    public function sessions()
+    { 
+        return $this->belongsToMany('App\Session', 'student_session','student_id', 'session_id')
         ->withTimestamps();
         
     }

@@ -13,6 +13,7 @@
                <input type="hidden" id="student_profile">
                <input type="hidden" id="department_id" method="post">
                <input type="hidden" id="semester_id" method="post">
+               <input type="hidden" id="session_id" method="post">
                
                 {{csrf_field()}}
               
@@ -102,10 +103,20 @@
                     <option value="{{$semester->id}}">{{$semester->semester_number}}</option>
                       @endforeach
                     </select> 
-                </div>
+                 </div>
 
+                  <div class="form-group">
+                    <label for="admission_year">Admission Year</label>
+                    <input type ="date"  class="form-control" name="admission_year" required >
+                  </div>
 
-              </div>
+                  <div class="form-group">
+                    <label for="passing_year">Passing Year</label>
+                    <input type ="date"  class="form-control" name="passing_year" required >
+                  </div>
+
+            </div>
+
               <div class="modal-footer">
                   <button type="submit" class="btn btn-primary-outline"> Add</button>
                   <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>

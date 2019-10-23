@@ -64,7 +64,7 @@ class SemestersController extends Controller
      */
     public function edit($id)
     {
-        //   return rdirect ('semesters'); 
+        //  
     }
 
     /**
@@ -76,12 +76,13 @@ class SemestersController extends Controller
      */
     public function updateSemester(Request $request, Semester $semester )
     {
-        //   dd($request->all());
+
           $semester = Semester::find($request->get('id'));
-// dd($semester);
+
           $semester->semester_number = $request->get('semester_number');
           $semester->total_subjects = $request->get('total_subjects');
           $semester->semester_room_number = $request->get('semester_room_number');
+
           $semester->save();
           return redirect('/semesters');
         
@@ -105,7 +106,7 @@ class SemestersController extends Controller
         $semester = Semester::find($id);
 
         return response()
-        ->json(['semester' => $semester]);
+           ->json(['semester' => $semester]);
 
     }
 
@@ -118,7 +119,7 @@ class SemestersController extends Controller
         } 
 
         return response()
-        ->json(['status' => $status]);
+          ->json(['status' => $status]);
 
     } 
    

@@ -4,20 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStudentBranchTable extends Migration
+class CreateStudentSessionTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
-     * 
      */
     public function up()
     {
-        Schema::create('student_branch', function (Blueprint $table) {
+        Schema::create('student_session', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('student_id');
-            $table->integer('branch_id');
+            $table->integer('session_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateStudentBranchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('student_branch');
+        Schema::dropIfExists('student_session');
     }
 }

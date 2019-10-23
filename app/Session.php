@@ -11,4 +11,12 @@ class Session extends Model
         'starting_year'
         
     ];
+
+
+    public function students()
+    { 
+        return $this->belongsToMany('App\Student')
+        ->withTimestamps();
+        
+    }
 }

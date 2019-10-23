@@ -19,26 +19,23 @@
 @foreach ($sessions as $session)
 
 
-        <tr>
-            <td>{{$session->id}}</td>
-            <td>{{$session->admission_year}}</td>
-            <td>{{$session->passing_year}}</td>
+      <tr>
+          <td>{{$session->id}}</td>
+          <td>{{$session->admission_year}}</td>
+          <td>{{$session->passing_year}}</td>
 
+<!-- code for edit/delete data from the index -->
+
+          <td>
+              <a href="#" data-id="{{$session->id}}" class="btn btn-success edit_session">Edit</a>
+            </td>
 
 
             <td>
-                <a href="#" data-id="{{$session->id}}" class="btn btn-success edit_session">Edit</a>
-             </td>
+              <a href="#" data-id="{{$session->id}}" class="btn btn-danger delete_record">Delete</a>
+            </td>
 
-
-             <td>
-                <a href="#" data-id="{{$session->id}}" class="btn btn-danger delete_record">Delete</a>
-             </td>
-
-
-
-
-        </tr> 
+      </tr> 
 
     </tbody>
 @endforeach

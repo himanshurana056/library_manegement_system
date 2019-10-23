@@ -13,6 +13,7 @@ class AddSemesterIdToStudentsTable extends Migration
      */
     public function up()
     {
+        
         Schema::table('students', function (Blueprint $table) {
             $table->integer('semester_id')->nullable()->after('department_id');
         });

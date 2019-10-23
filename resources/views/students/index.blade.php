@@ -21,6 +21,7 @@
           <th>CITY</th>
           <th>PINCODE</th>
           <th>DEPARTMENT</th>
+         
        
         
         <th colsapn = 2><center>Action </center> </th> 
@@ -31,19 +32,24 @@
 @foreach  ($students as $student)
 
 @php $image = $student->student_profile->cover_image; @endphp
+
+
       <tr>
       <td>{{$student->id}}</td>
+    
         <td><img src='{{asset("storage/$image")}}'></td>
+   
         <td>{{$student->student_profile->roll_number}}</td>
+      
         <td>{{$student->student_profile->birth_year}}</td>
+        
         <td>{{$student->FullName}}</td>
         <td>{{$student->SemesterInformation}}</td>
         <td>{{$student->student_profile->address}}</td>
         <td>{{$student->student_profile->city}}</td>
         <td>{{$student->student_profile->pincode}}</td>   
-        <td>{{$student->department->department_name}}</td> 
-        
-        
+        <td>{{$student->department->department_name}}</td>
+ 
        
        
      

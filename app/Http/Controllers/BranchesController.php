@@ -44,7 +44,6 @@ class BranchesController extends Controller
         $branch = new Branch;
 
         $branch->branch_name = $request->get('branch_name');
-       
         $branch->save();
           
         return redirect('branches');
@@ -86,10 +85,9 @@ class BranchesController extends Controller
     {
          // dd($request->all());
          $branch = Branch::find($request->get('id'));
-        
          $branch->branch_name = $request->get('branch_name');
-      
          $branch->save();
+    
          return redirect('/branches');
         
     }

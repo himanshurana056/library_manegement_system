@@ -18,6 +18,7 @@ class DepartmentsController extends Controller
     public function index()
     {
         $departments = Department::all();
+        
         return view('departments.index',compact('departments'));
     }
 
@@ -44,7 +45,7 @@ class DepartmentsController extends Controller
         $department->hod_name = $request->get('hod_name');
         $department->incharge_name = $request->get('incharge_name');
                 
-                $department->save();
+        $department->save();
         return redirect('departments');
     }
 
@@ -79,10 +80,9 @@ class DepartmentsController extends Controller
      */
     public function updateDepartment(Request $request)
     {
-        // dd($request->all());
-        $department = Department::find($request->get('id'));
-     
-         
+        
+         $department = Department::find($request->get('id'));
+
          $department->department_name = $request->get('department_name');
          $department->hod_name = $request->get('hod_name');
          $department->incharge_name = $request->get('incharge_name');
@@ -108,7 +108,7 @@ class DepartmentsController extends Controller
         $department = Department::find($id);
 
         return response()
-        ->json(['department' => $department]);
+          ->json(['department' => $department]);
 
         
         
@@ -121,7 +121,7 @@ class DepartmentsController extends Controller
         } 
 
         return response()
-        ->json(['status' => $status]);
+           ->json(['status' => $status]);
 
         
         

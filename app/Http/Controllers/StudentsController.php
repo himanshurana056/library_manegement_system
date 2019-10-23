@@ -7,6 +7,9 @@ use App\StudentProfile;
 use App\Department;
 use App\Semester;
 use App\Branch;
+use App\Session;
+
+
 
 
 use Illuminate\Http\Request;
@@ -26,7 +29,7 @@ class StudentsController extends Controller
         $students = Student::all();
         $departments = Department::all();
         $semesters = Semester::all();
-       
+        
         
       
         return view('students.index', compact('students', 'departments', 'semesters'));
@@ -50,10 +53,10 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-    //    dd($request);
+    // dd($request);
 
         $student = new Student;
-        // dd($student);
+
 
         $semester = Semester::find($request->get('semester_id'));
 
@@ -98,8 +101,14 @@ class StudentsController extends Controller
        
         $branch->branch_name = $request->get('branch_name');
         $student->branches()->sync($student);
-        // dd($student);
         $branch->save();
+
+        $session = new Session;
+
+        $session->admission_year = $request->get('admission_year');
+        $session->passing_year = $request->get('passing_year');
+        $student->sessions()->sync($student);
+        $session->save();
         
         return redirect('students');
 
@@ -136,16 +145,20 @@ class StudentsController extends Controller
      */
     public function updateStudent(Request $request, Student $student)
     {
-       
+    // dd($request);
+     
         $student = Student::find($request->get('id'));
-       
-        $department = Department::find($request->get('department_id'));
-    
-        $semester = Semester::find($request->get('semester_id'));
         
         $student->user_name = $request->get('user_name');
         $student->email = $request->get('email');
         $student->password = $request->get('password');
+       
+    
+        $department = Department::find($request->get('department_id'));
+            
+        $semester = Semester::find($request->get('semester_id'));
+        
+        
         
        
         

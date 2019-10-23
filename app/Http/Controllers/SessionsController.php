@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Session;
+use App\Stundet;
 use Illuminate\Http\Request;
 
 class SessionsController extends Controller

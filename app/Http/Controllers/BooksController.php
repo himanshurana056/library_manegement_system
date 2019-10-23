@@ -98,37 +98,37 @@ class BooksController extends Controller
          
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-     public function editBook($id)
-    {
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  \App\Book  $book
+         * @return \Illuminate\Http\Response
+         */
+        public function destroy($id)
+        {
+            //
+        }
+        public function editBook($id)
+        {
 
-        $book = Book::find($id);
-        return response()
-            ->json(['book' => $book]);
-      
-         
-    }
+            $book = Book::find($id);
+            return response()
+                ->json(['book' => $book]);
+        
+            
+        }
 
-    public function deleteBook($id)
-    {
-        $status = false;
-        if(Book::find($id)->destroy($id)){
-            $status = true;
-        } 
+        public function deleteBook($id)
+        {
+            $status = false;
+            if(Book::find($id)->destroy($id)){
+                $status = true;
+            } 
 
-        return response()
-        ->json(['status' => $status]);
-    
+            return response()
+            ->json(['status' => $status]);
+        
 
-    }
+        }
 }
 
